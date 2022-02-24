@@ -36,20 +36,34 @@ Module archtecure:
 Procedure:
 
 Calibration phase:
+
 CH1: binner -> hist -> sorter -> selector -> spike rate with highest frequency from hist and selected encoder number from selector will be stored in RAM address 1
+
 CH2:...
+
 CH3:...
+
 ...
+
 CHN:....
 
+
 Compression phase:
+
 CH1: 	binner reads the current spike rate from RAM
-	Increase it by one if a spike is detection
-	Store back to RAM and read next line
-	If bin period reached
-		mapper map the binned spike rate to the correct number
-		encoder encode it and provide the codeword length
+
+--------Increase it by one if a spike is detection
+	
+--------Store back to RAM and read next line
+	
+--------If bin period reached
+	
+----------------mapper map the binned spike rate to the correct number
+		
+----------------encoder encode it and provide the codeword length
+		
 CH2:....
+
 ....
 
 
