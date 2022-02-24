@@ -10,7 +10,6 @@ Full system, S = 3, BP = 50, 1 encoder.
 from functions_1 import *
 import numpy as np
 import pickle
-import re
 
 
 ################### SELECT OPTION, PARAMETERS ############################
@@ -26,24 +25,13 @@ hist_memory = 6 # bits
 encoder = ['0', '10', '11']
 SCLV = [1,2,2]
 
-# Specify root directory (where directories.txt file is located)
-root_directory = r'D:\Dropbox (Imperial NGNI)\NGNI Share\Workspace\Oscar\Work\MUA compression\Upload code'
+# Specify root directory (where all code is located)
+root_directory = r'path to Hardware-efficient-MUA-compression directory'
 
 ##########################################################################
 
-# Read directories.txt file
-with open(root_directory + '\\directories.txt') as f:
-    lines = f.readlines()
-
-# Get path to Formatted data
-for path in lines:
-    if path.startswith('Formatted_data_path'):
-        pattern = "'(.*?)'"
-        data_path = re.search(pattern, path).group(1)
-
-# Load all test data
-file_name = data_path + '\\all_binned_data_' +train_or_test+'.pkl'
-
+# Get path to all test/train data
+file_name = root_directory + '\\Data\\Formatted_data\\all_binned_data_' +train_or_test+'.pkl'
 
 with open(file_name, 'rb') as file:      
     results = pickle.load(file)

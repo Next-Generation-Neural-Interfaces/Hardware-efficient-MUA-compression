@@ -19,36 +19,27 @@ from openpyxl import load_workbook
 # NOTE: bits_per_channel_for_histogram_vector HAS TO BE THE SAME AS IN THE 
 # "get_BR_no_sort" AND "get_BR_with_approx_sort" SCRIPTS.
 bits_per_channel_for_histogram_vector = pow(2,np.array([2,3,4,5,6,7,8,9,10]))
-CV_vector = np.arange(1,7,1)
+CV_vector = np.arange(1,30,1)
 bin_vector = [1,5,10,20,50,100]
 S_vector = np.arange(2,11,1)
 
-# Specify root directory (where directories.txt file is located)
-root_directory = r'D:\Dropbox (Imperial NGNI)\NGNI Share\Workspace\Oscar\Work\MUA compression\Upload code'
+# Specify root directory (where all code is located)
+root_directory = r'path to Hardware-efficient-MUA-compression directory'
 
 ##########################################################################
-
-
 
 # Read directories.txt file
 with open(root_directory + '\\directories.txt') as f:
     lines = f.readlines()
 
 # Get path to BDP results
-for path in lines:
-    if path.startswith('BDP_results'):
-        pattern = "'(.*?)'"
-        BDP_results_directory = re.search(pattern, path).group(1)
+BDP_results_directory = root_directory + '\\Results\\BDP_results'
         
-            
+
 # Get excel spreadsheet directory (has the hardware processing power and 
 # resources results, in this script we we will add the BR and BDP results)
-for path in lines:
-    if path.startswith('combined_results_excel_path'):
-        pattern = "'(.*?)'"
-        excel_directory = re.search(pattern, path).group(1)
-        excel_path = excel_directory + '\combined_results_template.xlsx'
-     
+excel_path = root_directory + '\\Results\\combined_results_template.xlsx'
+
 # Get SCLV directory
 for path in lines:
     if path.startswith('SCLV_path'):
@@ -176,7 +167,7 @@ Same thing as above, with the BDP results for each BP and S.
 
 Basically we access the condensed BDP results from "analyse_BDP_S_pkl.py",
 and format them according to the excel spreadsheet, and import the results to 
-t3he excel spreadsheet.
+the excel spreadsheet.
 """
 
 # Iterate through both BDP datasets, sum the BDP results as a function of S and BP

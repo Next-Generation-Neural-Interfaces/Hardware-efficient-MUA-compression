@@ -9,7 +9,6 @@ Created on Fri Jul  9 16:35:45 2021
 import time
 import numpy as np
 import heapq
-import time
 from collections import defaultdict
 import pickle
 
@@ -33,8 +32,6 @@ def encode(frequency):
 # enough increment (related to the resolution of the probability distribution
 # used to train the Huffman encoders, which are then reduced to SCLV 
 # representation).
-
-#folder = 'D:\\Dropbox (Imperial NGNI)\\NGNI Share\\Workspace\\Oscar\\Work\\MUA compression\\MUA_compression_1_Python_backup\\'
 
 increment = 0.15 # the smaller the increment, the more likely we are to get every possible SCLV. However, it takes longer to run the algorithm.
 all_CLVs = []

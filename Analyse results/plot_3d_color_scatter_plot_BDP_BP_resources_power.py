@@ -10,31 +10,24 @@ the interactions between BP, BDP, and FPGA power consumtion and resources.
 import numpy as np
 import matplotlib.pyplot as plt
 import copy
-import re
 from openpyxl import load_workbook
 import string
 
 # Library for converting excel formulas into Python
-from xlcalculator import ModelCompiler, Model, Evaluator
+from xlcalculator import ModelCompiler, Evaluator
 
 
 #################### SET ROOT DIRECTORY ##################################
-# Specify root directory (where directories.txt file is located)
-root_directory = r'D:\Dropbox (Imperial NGNI)\NGNI Share\Workspace\Oscar\Work\MUA compression\Upload code'
-# %matplotlib qt
-##########################################################################
+# Specify root directory (where all code is located)
+root_directory = r'path to Hardware-efficient-MUA-compression directory'
 
-# Read directories.txt file
-with open(root_directory + '\\directories.txt') as f:
-    lines = f.readlines()
+# %matplotlib qt
+
+##########################################################################
 
 # Get excel spreadsheet directory (has the hardware processing power and 
 # resources results, in this script we we will add the BR and BDP results)
-for path in lines:
-    if path.startswith('combined_results_excel_path'):
-        pattern = "'(.*?)'"
-        excel_directory = re.search(pattern, path).group(1)
-        excel_path = excel_directory + '\combined_results_template.xlsx'
+excel_path = root_directory + '\\Results\\combined_results_template.xlsx'
      
 # Load excel spreadsheet template, from it we get all of the results
 workbook = load_workbook(filename=excel_path)

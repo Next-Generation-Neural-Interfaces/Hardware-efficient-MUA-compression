@@ -18,8 +18,6 @@ to exceed the power budget.
 """
 import pickle
 import numpy as np
-import re
-#from random import sample
 
 ################### SELECT OPTION, PARAMETERS ############################
 
@@ -33,9 +31,8 @@ ADC_power = 0 # count it as off-FPGA
 #total_power_budget = 10e-3 * (1.4e-1 * 1.48e-1) # for 1.48 mm x 1.48 mm scale FPGA
 total_power_budget = 10e-3 * (2.5e-1 * 2.5e-1) # for 2.5 mm x 2.5 mm scale FPGA
 
-
-# Specify root directory (where directories.txt file is located)
-root_directory = r'D:\Dropbox (Imperial NGNI)\NGNI Share\Workspace\Oscar\Work\MUA compression\Upload code'
+# Specify root directory (where all code is located)
+root_directory = r'path to Hardware-efficient-MUA-compression directory'
 
 # Architecture, no-sort or approx-sort, we selected parameters
 # for both that seem to offer good overall system performance
@@ -43,17 +40,10 @@ approx_or_no_sort = 'approx-sort'
 
 ##########################################################################
 
-# Read directories.txt file
-with open(root_directory + '\\directories.txt') as f:
-    lines = f.readlines()
-
 # Get BR results directory
 if approx_or_no_sort == 'no-sort':
-    for path in lines:
-        if path.startswith('BR_no_sort_results'):
-            pattern = "'(.*?)'"
-            BR_results_directory = re.search(pattern, path).group(1)
-        
+    BR_results_directory = root_directory + '\\Results\\BR_results_no_sort'
+
     # Chosen system parameters
     S = 7
     BP = 50
@@ -61,11 +51,8 @@ if approx_or_no_sort == 'no-sort':
     nb_enc = 1
 
 elif approx_or_no_sort == 'approx-sort': 
-    for path in lines:
-        if path.startswith('BR_approx_sort_results'):
-            pattern = "'(.*?)'"
-            BR_results_directory = re.search(pattern, path).group(1) 
-      
+    BR_results_directory = root_directory + '\\Results\\BR_results_approx_sort'
+
     # Chosen system parameters
     S = 3
     BP = 50

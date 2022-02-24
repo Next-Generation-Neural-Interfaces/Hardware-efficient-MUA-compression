@@ -4,7 +4,6 @@ Load Flint data from matlab. HPC version.
 """
 
 # import packages
-import h5py
 import numpy as np
 from HPC_working_dir.functions.preprocess import input_shaping, split_index
 from HPC_working_dir.functions.decoders import WienerCascadeDecoder
@@ -32,9 +31,8 @@ def moving_average(a, n=3) :
 
 def BDP_for_S_and_BP():
 
-    # Path to working directory
-    # working_directory = '/rds/general/user/ows18/home/MUA_CR_Flint/'
-    working_directory = '/rds/general/user/ows18/home/rerun_MUA_upload/'
+    # Path to HPC working directory (where neural data and results folders are loctaed)
+    working_directory = ''
     
     if working_directory == '':
         print('Fill in path to working directory')
@@ -63,9 +61,6 @@ def BDP_for_S_and_BP():
     
     print ("Starting simulation")
     run_start = timer.time()
-    
-    feature_list = ['sua_rate', 'mua_rate']
-    feature = feature_list[1]
         
     # Look at all stored file names, we have it this way so the indexing is 
     # consistent, always relative to the .txt file 

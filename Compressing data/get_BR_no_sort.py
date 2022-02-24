@@ -9,13 +9,12 @@ encoders and histogram size combination. In this version, we do not sort the
 validation data histograms. See article XX for details.
 """
 
-# We run it for 10 CVs, for each BP, and for different numbers of S
+# We run it for 30 CVs, for each BP, and for different numbers of S
 
 from functions_1 import *
 import numpy as np
 import pickle
 import copy
-import re
 
 ################### SELECT OPTION, PARAMETERS ############################
 
@@ -25,32 +24,19 @@ train_percentage = 50 # half of channels are for training, half for validation, 
 how_many_channels_Sabes = 2000 # we limit the number of Sabes channels since there ar eonly 960 Flint channels, this prevents the results from overfitting to the Sabes data
 nb_CV_iterations = 30
 
-# Specify root directory (where directories.txt file is located)
-root_directory = r'D:\Dropbox (Imperial NGNI)\NGNI Share\Workspace\Oscar\Work\MUA compression\Upload code'
+# Specify root directory (where all code is located)
+root_directory = r'path to Hardware-efficient-MUA-compression directory'
 
 ##########################################################################
 
-# Read directories.txt file
-with open(root_directory + '\\directories.txt') as f:
-    lines = f.readlines()
-
 # Get path to Formatted data
-for path in lines:
-    if path.startswith('Formatted_data_path'):
-        pattern = "'(.*?)'"
-        data_directory = re.search(pattern, path).group(1)
-        
+data_directory = root_directory + '\\Data\\Formatted_data'
+
 # Get results directory
-for path in lines:
-    if path.startswith('BR_no_sort_results'):
-        pattern = "'(.*?)'"
-        results_directory = re.search(pattern, path).group(1)
-      
+results_directory = root_directory + '\\Results\\BR_results_no_sort'
+
 # Get SCLV directory
-for path in lines:
-    if path.startswith('SCLV_path'):
-        pattern = "'(.*?)'"
-        SCLV_directory = re.search(pattern, path).group(1)
+SCLV_directory = root_directory + '\\Compressing data\\Produce SCLVs'
         
 
 # Load binned MUA data

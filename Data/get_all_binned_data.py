@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Nov 20 14:22:00 2021
-
+Script for binning the data for all 3 datasets, and storing the results in 
+a .pkl file. This can be done for both the training (A) and testing (B) data.
 @author: oscar
 """
 
 import numpy as np
 from scipy import io
 import pickle
-import re
 
 ################### SELECT OPTION, PARAMETERS ############################
 
@@ -17,21 +16,14 @@ bin_vector = [1, 5, 10, 20, 50, 100]
 datasets =['Flint','Sabes','Brochier']
 train_or_test = 'test' # 'train' for training data (A), 'test' for testing data (B)
 
-# Specify root directory (where directories.txt file is located)
-root_directory = r'D:\Dropbox (Imperial NGNI)\NGNI Share\Workspace\Oscar\Work\MUA compression\Upload code'
+# Specify root directory (where all code is located)
+root_directory = r'path to Hardware-efficient-MUA-compression directory'
 
 ##########################################################################
 
-# Read directories.txt file
-with open(root_directory + '\\directories.txt') as f:
-    lines = f.readlines()
-
 # Get path to Formatted data
-for path in lines:
-    if path.startswith('Formatted_data_path'):
-        pattern = "'(.*?)'"
-        data_path = re.search(pattern, path).group(1)
-        
+data_directory = root_directory + '\\Data\\Formatted_data'
+
 
 all_binned_data = []
 for BP in bin_vector:
@@ -70,7 +62,7 @@ for BP in bin_vector:
 
 
 # Store binned data
-file_name = data_path + '\\all_binned_data_'+train_or_test+'.pkl'
+file_name = data_directory + '\\all_binned_data_'+train_or_test+'.pkl'
 with open(file_name, 'wb') as file:
                   
     results = {'all_binned_data': all_binned_data,

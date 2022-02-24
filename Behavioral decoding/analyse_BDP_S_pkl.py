@@ -9,37 +9,22 @@ and index the test results for the same parameters.
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
-import re
-
-
 
 # To plot in seperate window in Spyder
 # %matplotlib qt
 
-
-# Specify root directory (where directories.txt file is located)
-root_directory = r'D:\Dropbox (Imperial NGNI)\NGNI Share\Workspace\Oscar\Work\MUA compression\Upload code'
+# Specify root directory (where all code is located)
+root_directory = r'path to Hardware-efficient-MUA-compression directory'
 
 ##########################################################################
 
-
-# Read directories.txt file
-with open(root_directory + '\\directories.txt') as f:
-    lines = f.readlines()
-
 # Get path to BDP results
-for path in lines:
-    if path.startswith('BDP_results'):
-        pattern = "'(.*?)'"
-        BDP_results_directory = re.search(pattern, path).group(1)
+BDP_results_directory = root_directory + '\\Results\\BDP_results'
      
 # Get SCLV directory
-for path in lines:
-    if path.startswith('SCLV_path'):
-        pattern = "'(.*?)'"
-        SCLV_directory = re.search(pattern, path).group(1)
-        
+SCLV_directory = root_directory + '\\Compressing data\\Produce SCLVs'
 
+        
 BP_vec = [1,5,10,20,50,100]
 S_vector = np.arange(2,40)
 time_steps_vec = [5, 10, 15]
@@ -254,7 +239,7 @@ for Sabes_or_Flint in ['Flint']: #'Sabes',
         
         # Boxplot for each BP, show boxplot of each S with label of nb of 
         # succesful recordings
-        S_vector_plot = np.arange(40)
+        S_vector_plot = np.arange(np.max(S_vector))
         
         for BP_counter, BP in enumerate(BP_vec):
             fig = plt.figure()
