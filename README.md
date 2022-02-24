@@ -3,7 +3,7 @@ Code, study results and hardware designs for the hardware efficient compression 
 
 Article located at:
 
-Results and data located at:
+Results and data (neural data .mat files) located at:
 
 
 ## Code to recreate results:
@@ -23,7 +23,7 @@ Download the results (.pkl files) to Results directory, in e.g. “Results\BDP_r
 Run "analyse_BDP_S_pkl.py" to analyze the (hyper-)parameter optimization results and to save the optimized BDP vs. S and BP results in .pkl files for easy access.
 
 ### Hardware power consumption and resources results:
-
+See "FPGA implementation" directory README file.
 
 
 ## Code to analyze complete results:
