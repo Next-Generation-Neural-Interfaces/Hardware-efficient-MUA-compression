@@ -4,7 +4,7 @@ Please open compression_multichannel.mpf with Modelsim. If file not found, recre
 
 Module archtecure:
 
-|-multichannel_encoder ------------------	A stand-alone implementation	
+|-multichannel_encoder ------------------	A stand-alone implementation
 |-tb_whole_system------------------------	The test banch for this design
 	|--1_binner_final---------------	Multi-channel binner counts the number of detections in a bin_period
 	|--2_hist------------------------	Counts the histogram of different spike rate
