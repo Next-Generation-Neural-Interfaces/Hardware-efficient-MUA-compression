@@ -3,7 +3,7 @@ Code, study results and hardware designs for the hardware efficient compression 
 
 Article located at:
 
-Results and data (neural data .mat files) located at:
+Results (as .pkl files) and formatted data (as neural data .mat files) located at: Zenodo, doi: 10.5281/zenodo.6265023
 
 
 ## Code to recreate results:
