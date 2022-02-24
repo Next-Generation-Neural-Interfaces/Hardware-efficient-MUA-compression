@@ -8,8 +8,6 @@ Results and data (neural data .mat files) located at:
 
 ## Code to recreate results:
 
-**IMPORTANT: First add all paths to directories.txt file.**
-
 ### BR results:
 Run “Compressing data/get_BR_approx_sort.py”  to produce the approx. sort BR results
 
