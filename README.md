@@ -8,12 +8,12 @@ Results (as .pkl files) and formatted data (as neural data .mat files) located a
 
 ## Code to recreate results:
 
-### BR results:
+### Bit Rate (BR) results:
 Run “Compressing data/get_BR_approx_sort.py”  to produce the approx. sort BR results
 
 Run “Compressing data/get_BR_no_sort.py” to produce the no sort BR results.
 
-### BDP results:
+### Behavioral Decoding Performance (BDP) results:
 Run “Behavioral decoding/HPC code/Flint_HPC_BDP_S_test.pbs”, “…Flint_HPC_BDP_S_train.pbs”, “…Sabes_HPC_BDP_S_test.pbs”, “…Sabes_HPC_BDP_S_train.pbs” (designed as HPC .pbs BASH scripts that call the Python functions [in .py files of the same name as .pbs files] as array jobs)
 
 Download the results (.pkl files) to Results directory, in e.g. “Results\BDP_results\results_Flint_train” directory. 
